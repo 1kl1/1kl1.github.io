@@ -1,0 +1,23 @@
+
+
+{
+  "name": "1kl1의 개발기",
+  "short_name": "1kl1의 개발기",
+  "description": "스타트업 Flutter 개발 경험과 일상을 쓰는 1kl1의 개발록. 스타트업 환경에서의 도전과 성장. 그리고 개발자로의 일상과 삶에 대한 고민. 1kl1's development log documenting the Flutter development experience and daily life in startup. Discover challenges and growth in the startup environment, along with reflections on life and dilemmas as a developer.",
+  "icons": [
+    {
+      "src": "/assets/img/favicons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/favicons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+  "start_url": "/index.html",
+  "theme_color": "#2a1e6b",
+  "background_color": "#ffffff",
+  "display": "fullscreen"
+}
+
