@@ -24,7 +24,7 @@ dart에는 독특한 문법 하나가 있습니다.`extension`이라는 키워�
 
 따라서, 부수 효과를 잘 관리하는것이 함수형 프로그래밍의 핵심입니다. 그래서 함수형 프로그래밍은 코딩을 세 단계로 구분하는데, `액션`,`계산`,`데이터` 입니다. 
 
-그래서 함수형 프로그래밍이 extension이랑 무슨 관계가 있는거냐... 저는 이 세 단계 중 '계산' 단계를 extension으로 처리할 수 있다고 생각했습니다.
+그래서 함수형 프로그래밍이 extension이랑 무슨 관계가 있는거냐... 저는 이 세 단계 중 '계산' 단계를 extension으로 리펙토링 있다고 생각했습니다.
 
 ### 사용 예시
 
@@ -45,19 +45,9 @@ dart에는 독특한 문법 하나가 있습니다.`extension`이라는 키워�
    - ``` dart
      extension DateTimeX on DateTime {
        String get yyyyMMdd => DateFormat("yyyy-MM-dd").format(this);
-       
-       String get yyyy_MM_dd => DateFormat("yyyy.MM.dd").format(this);
-       
-       static DateTime fromHHmmss(String time) {
-         final hour = int.parse(time.split(":")[0]);
-         final minute = int.parse(time.split(":")[1]);
-         final second = int.parse(time.split(":")[2]);
-         final now = DateTime.now();
-         return now.copyWith(hour: hour, minute: minute, second: second);
-       }
      }
      ```
-
+   
 2. function
 
    - 유용한 function 자체를 extension에 넣어서 사용할 수도 있습니다.
@@ -99,14 +89,11 @@ dart에는 독특한 문법 하나가 있습니다.`extension`이라는 키워�
 
      ```dart
      extension MenuX on Menu {
-       double get rate =>
-           recommend_count >= 1 ? ((favor_count / recommend_count) * 100) : -1;
        bool get hasImage => menu_image != null && menu_thumbnail != null;
        bool get noImage => menu_image == null || menu_thumbnail == null;
        bool get is_inactive => !is_active;
        bool get hasRecommend => recommend_count > 0;
      }
-     
      ```
-
+     
      
