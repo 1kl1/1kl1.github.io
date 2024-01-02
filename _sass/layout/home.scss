@@ -1,6 +1,7 @@
 /*
   Style for Homepage
 */
+@charset "UTF-8";
 
 #post-list {
   margin-top: 2rem;
@@ -77,7 +78,7 @@
           color: inherit;
         }
 
-        > div:first-child {
+        >div:first-child {
           display: block;
           white-space: nowrap;
           overflow: hidden;
@@ -86,7 +87,9 @@
       }
     }
   }
-} /* #post-list */
+}
+
+/* #post-list */
 
 .pagination {
   color: var(--btn-patinator-text-color);
@@ -135,8 +138,12 @@
     &:last-child .page-link {
       border-radius: 50%;
     }
-  } /* .page-item */
-} /* .pagination */
+  }
+
+  /* .page-item */
+}
+
+/* .pagination */
 
 /* Tablet */
 @media all and (min-width: 768px) {
@@ -208,7 +215,9 @@
     .page-index {
       display: none;
     }
-  } /* .pagination */
+  }
+
+  /* .pagination */
 }
 
 /* Panel is visible */
