@@ -38,10 +38,11 @@ social:
   links:
     - https://github.com/1kl1
 
-google_site_verification: # fill in to your verification string
+google_site_verification: J6yJ-TPzkKBwYov9BMneOLlbS6yNjCbO8xrYW89xVdE # fill in to your verification string
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
+
 
 google_analytics:
   id: G-HM8CSLKZ6N
