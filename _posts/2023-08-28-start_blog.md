@@ -3,6 +3,7 @@ title: 블로그 시작
 date: 2023-08-28 23:52:00
 categories: [일상, 회고]
 tags: [일상]
+description: 블로그를 시작하게 된 계기를 담은 글
 ---
 
 

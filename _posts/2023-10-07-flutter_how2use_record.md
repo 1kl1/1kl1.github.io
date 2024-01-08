@@ -1,8 +1,9 @@
 ---
-title: 2년차 flutter 주니어가 extension를 쓰는 법
-date: 2023-10-07 06:00:00
+title: 2년차 flutter 주니어가 record를 쓰는 법
+date: 2023-11-07 06:00:00
 categories: [개발, flutter]
 tags: [개발, flutter, dart3, records]
+description: flutter, dart3에서 record를 쓰는 노하우와 꿀팁을 담은 글.
 ---
 
 dart 3.0이 나오면서 `record`라는 새로운 타입을 소개했습니다.

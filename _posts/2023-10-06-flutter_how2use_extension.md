@@ -3,7 +3,7 @@ title: 2년차 flutter 주니어가 extension를 쓰는 법
 date: 2023-10-06 22:30:00
 categories: [개발, flutter]
 tags: [개발, flutter, dart3, records, extension]
-
+description: flutter, dart3에서 extension을 쓰는 방법을 담은 글.
 ---
 
 dart에는 독특한 문법 하나가 있습니다.`extension`이라는 키워드를 이용해서 기존의 클래스를 `확장` 하는 문법입니다. 

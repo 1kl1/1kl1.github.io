@@ -3,6 +3,7 @@ title: flutter 카카오톡으로 공유하기(Kakao flutter sdk 사용)
 date: 2023-08-30 01:34:00
 categories: [개발, flutter]
 tags: [개발, flutter, 카카오톡 공유]
+description: flutter에서 카카오톡으로 공유하는 방법을 담은 글.
 ---
 ### flutter로 앱을 개발하다보면 공유기능이 필요해질 때가 있습니다. (친구초대 이벤트, 정보 공유 등..)  
 

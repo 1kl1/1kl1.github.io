@@ -3,6 +3,7 @@ title: flutter 카카오 로그인 연동기
 date: 2024-01-06 00:00:00
 categories: [개발, flutter]
 tags: [개발, flutter, 카카오톡 로그인, 카카오톡 연동, oauth]
+description: flutter로 카카오 로그인을 진행하는 방법과 문제 해결 과정에 대한 글
 
 ---
 
