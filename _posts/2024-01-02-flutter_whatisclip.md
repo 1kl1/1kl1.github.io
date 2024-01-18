@@ -12,7 +12,7 @@ description: flutter에서 사용하는 다양한 clip과 그에 대한 이해�
 
 Clip이라는 용어를 처음 들었을 때 떠올랐던 건 문서를 정리하는데 쓰이는 클립이었습니다.
 
-<img src="../assets/img/2024-01-02-flutter_whatisclip/Clip.jpg" alt="파일:Clip.jpg - 위키백과, 우리 모두의 백과사전" style="zoom:25%;" />
+<img src="../assets/img/2024-01-02-flutter_whatisclip/image-20240118182804224.png" alt="image-20240118182804224" style="zoom:50%;" />
 
 이후 개발을 해 가면서 이미지의 가장자리를 둥글게 만들어야 할 일이 있었고, 
 

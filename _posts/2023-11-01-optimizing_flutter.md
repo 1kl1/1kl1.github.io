@@ -8,6 +8,8 @@ description: flutter에서 최적화하는 방법들을 담은 글입니다.
 
 ---
 
+작성예정
+
 image caching하기
 
 lazy build하기

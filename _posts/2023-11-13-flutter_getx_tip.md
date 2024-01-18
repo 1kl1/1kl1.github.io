@@ -8,4 +8,6 @@ description: flutter getx를 사용할 때 생길 수 있는 문제와 해결방
 
 ---
 
+작성예정
+
 binding 쓰지 말기. binding 버그가 많아서 stateful로 쓰기.

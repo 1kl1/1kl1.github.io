@@ -1,15 +1,13 @@
 ---
-title: keyhash설정, java.io.IOException: Invalid keystore format 오류, JAVA_HOME path 설정
+title: Invalid keystore format 오류와 keyhash, JAVA_HOME path 설정
 date: 2024-01-16 00:00:00
 categories: [개발, android]
 tags: [개발, android, keyhash, 오류해결, jdk]
-description: java.io.IOException: Invalid keystore format오류 해결법, android keyhash 추출, JAVA_HOME PATH설정
+description: java.io.IOException, Invalid keystore format오류 해결법, android keyhash 추출, JAVA_HOME PATH설정
 
 
 
 ---
-
-
 
 Android를 빌드할 땐 서명할 때 사용하는 keystore가 있습니다.
 
@@ -29,9 +27,13 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore -
 
 
 
+
+
 여기서,  `|`  기호는 쉘에서 pipe입니다.
 
-A | B | C가 호출된다면 A의 stdout을 B가 stdin으로 읽어오고 C 도 마찬가지로 동작하게 됩니다.
+A \| B \| C가 호출된다면 A의 stdout을 B가 stdin으로 읽어오고 C 도 마찬가지로 동작하게 됩니다.
+
+
 
 ```shell
 keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore -storepass android -keypass android
@@ -41,11 +43,17 @@ openssl sha1 -binary
 openssl base64
 ```
 
+
+
+
+
 두번째 줄의 sha1은 해시 함수를 실행해 주는 명령어로, 임의의 길이의 데이터를 입력받아 160비트의 고정된 길이 해시 값을 출력 해 줍니다.
 
 고로, keytool에서 문제가 생기던 말던, 어떤 버그를 출력하던 말던 일단 output의 형태가 hash형태라는 의미입니다.
 
 그래서, pipe를 사용하면 결과로 나온 hash값이 실제로 내가 원했던 hash값인지 아닌지 알 수 없었습니다.
+
+
 
 
 
@@ -81,6 +89,8 @@ terminal에 `java --version`을 입력해도 확인할 수 있습니다.
 
 
 
+
+
 ### java path 설정
 
 우선, ~에 .zsh_profile에 작성중인 쉘 프로파일이 있어 해당 파일에 이어 붙여넣기 했습니다.
@@ -100,6 +110,8 @@ export PATH="$PATH:$JAVA_HOME/bin"
 <img src="../assets/img/2024-01-17-invalid_keystrore_format/image-20240117121207851.png" alt="image-20240117121207851" style="zoom:50%;" />
 
 바뀐 버전을 확인하면 설정 완료입니다.
+
+
 
 
 
