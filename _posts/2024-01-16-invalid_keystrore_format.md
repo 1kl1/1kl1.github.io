@@ -69,7 +69,7 @@ debugging모드에서 카카오톡 로그인이 잘 되었지만 release모드�
 
 그리고 terminal에서 keytool 명령어를 사용하면 동작하는 jdk 버전(path에 등록된 jdk)은 아래 사진에 강조한 버전이었습니다.
 
-<img src="../assets/img/2024-01-17-invalid_keystrore_format/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202024-01-17%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2011.41.57.png" alt="스크린샷 2024-01-17 오전 11.41.57" style="zoom:50%;" />
+<img src="../assets/img/2024-01-17-invalid_keystrore_format/screenshot.png" alt="screenshot.png" style="zoom:50%;" />
 
 terminal에 `java --version`을 입력해도 확인할 수 있습니다.
 
