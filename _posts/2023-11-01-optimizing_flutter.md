@@ -77,11 +77,31 @@ CachedNetworkImage(
 
 ## Opacity 사용 줄이기
 
+> [https://api.flutter.dev/flutter/widgets/Opacity-class.html](https://api.flutter.dev/flutter/widgets/Opacity-class.html)
 
+Opacity의 값이 1.0이거나 0.0이 아닌 중간값이면 다른 위젯보다 상대적으로 비싼 비용이라고 합니다.
+
+painting될 때 중간 버퍼가 필요하기 때문입니다.
+
+특히, `AnimatedBuilder` + opacity의 조합을 쓰는 경우라고 하면 `AnimatedOpacity`를 사용하는것이 더 효율적입니다.
+
+`FadeTransition`을 사용하는것도 좋은 방법입니다.
 
 
 
 ## lazy build하기
+
+lazy build는 많은 Item을 다루면서도 한 화면 안에 많은 item이 다 빌드가 되지 않아도 되는 경우 사용할 수 있습니다.
+
+lazybuild를 사용하지 않을 경우, 화면 안에서 보여지지 않는 item을 한번에 빌드하기 때문에 빌드하는 순간 앱이 느려질 수 있습니다.
+
+<img src="../assets/img/2023-11-01-optimizing_flutter/image-20240608001157899.png" alt="image-20240608001157899" style="zoom:50%;" />
+
+Flutter에서 제공하는 lazybuild를 적용 할 경우 화면상에 보이지 않는 widget의 경우 가까운 widget의 경우 흑백으로, 아얘 멀리 있는 widget의 경우 렌더링되지 않습니다.
+
+> lazy build flutter 가이드 [https://www.youtube.com/watch?v=qax_nOpgz7E](https://www.youtube.com/watch?v=qax_nOpgz7E)
+
+`ListView`, `CustomScrollView`, `GridView`를 사용할 경우 자동으로 lazy build가 적용됩니다.
 
 
 
@@ -123,4 +143,4 @@ clip에 대한 내용은 다음 글에 더 자세히 담았습니다!
 
 ---
 
-더 좋은 최적화 기법이 있다면 댓글로 달아주시면 감사하겠습니다!
+이외에도 최적화 기법이 있다면 댓글로 달아주시면 감사하겠습니다!
