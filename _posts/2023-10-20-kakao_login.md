@@ -2,12 +2,12 @@
 title: flutter 카카오 로그인 연동기
 date: 2023-10-20 00:00:00
 categories: [개발, flutter]
-tags: [개발, flutter, 카카오톡 로그인, 카카오톡 연동, oauth]
+tags: [개발, flutter, 카카오톡 로그인, 카카오톡 연동, oauth, kakaotalk, kakaotalk login]
 description: flutter로 카카오 로그인을 진행하는 방법과 문제 해결 과정에 대한 글
 
 ---
 
-지금 일하고 있는 스타트업에서 피봇을 하게 되었고 새로 진행하는 프로젝트에 카카오 로그인을 도입하게 되었습니다.
+지금 일하고 있는 스타트업에서 새로 진행하는 프로젝트에 카카오 로그인을 도입하게 되었습니다.
 
 이번 글에서는 카카오 로그인을 도입하는 방법을 한단계 한단계 기록해보려고 합니다.
 
@@ -104,7 +104,7 @@ encrypt
 
 kakao developers에 로그인/회원가입 후 console에 들어가서 어플리케이션을 추가 해 줍니다.
 
-https://developers.kakao.com/console/app
+[https://developers.kakao.com/console/app](https://developers.kakao.com/console/app)
 
 어플리케이션을 추가 후 플랫폼을 등록 해 주어야 합니다.
 
@@ -305,7 +305,9 @@ await isKakaoTalkInstalled() // kakaotalk이 설치되어 있는지 확인
 
 <img src="../assets/img/2024-01-03-kakao%20login/image-20240104100739375.png" alt="image-20240104100739375" style="zoom:50%;" />
 
-이 URL에서 더 자세한 내용을 알 수 있습니다. https://developers.kakao.com/docs/latest/ko/kakaologin/design-guide
+다음 URL에서 더 자세한 내용을 알 수 있습니다.
+
+ [https://developers.kakao.com/console/app](https://developers.kakao.com/docs/latest/ko/kakaologin/design-guide)
 
 
 
