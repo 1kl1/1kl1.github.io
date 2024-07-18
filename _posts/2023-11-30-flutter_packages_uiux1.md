@@ -1,5 +1,5 @@
 ---
-title: Flutter에서 유용하게 사용했던 패키지 UIUX 편
+title: Flutter에서 유용하게 사용했던 패키지 UIUX 1편
 date: 2023-11-30 00:00:00
 categories: [개발, flutter]
 tags: [개발, uiux, flutter]
