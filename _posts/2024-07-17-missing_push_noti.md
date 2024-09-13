@@ -1,10 +1,9 @@
 ---
-title: ITMS-90078: Missing Push Notification Entitlement 해결
+title:ITMS-90078. Missing Push Notification Entitlement 해결
 date: 2024-07-17 00:00:00
 categories: [개발, flutter, ios]
 tags: [개발, flutter, ios]
 description: Flutter에서 ios appstore issue 해결
-
 
 
 
