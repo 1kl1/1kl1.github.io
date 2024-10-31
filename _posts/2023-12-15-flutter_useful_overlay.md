@@ -201,6 +201,29 @@ class _SimpleNotifyState extends State<_SimpleNotifyContainer> {
 
 이 방법으로 원하는 요구사항을 만족하는 overlay를 구현할 수 있었습니다.
 
+물론, Overlay를 띄워주려면 띄워주려는 context의 부모위젯 중에 Overlay와 OverlayEntry가 있어야 합니다.
+
+해당 부분을 MaterialApp의 아랫계층에서 사용할 수 있도록 다음과 같이 코드를 추가하였습니다.
+
+```dart
+
+runApp(
+  MaterialApp.router(
+   	...
+    builder: (context, child) {
+      return Overlay(
+        initialEntries: [
+          OverlayEntry(builder: (context) => child!),
+        ],
+      );
+    },
+    ...
+  ),
+);
+```
+
+이러면 하위 child에서 Overlay를 띄워주게 되면, 해당 Overlay의 Context안에서 띄워지게 됩니다. 
+
 
 
 ## **CompositedTransformTarget**, **CompositedTransformFollower**, **OverlayPortal**
