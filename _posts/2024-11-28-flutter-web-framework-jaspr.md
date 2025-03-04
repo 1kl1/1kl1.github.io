@@ -1,5 +1,5 @@
 ---
-title: Dart web framework: Jaspr
+title: Dart web framework-Jaspr
 date: 2023-11-28 06:00:00
 categories: [개발, flutter]
 tags: [개발, flutter, jaspr, web]
