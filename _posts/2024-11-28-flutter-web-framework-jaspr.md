@@ -1,10 +1,9 @@
 ---
-title: Dart web framework-Jaspr
-date: 2023-11-28 06:00:00
+title: "Dart web framework-Jaspr"
+date: "2024-11-28 06:00:00"
 categories: [개발, flutter]
 tags: [개발, flutter, jaspr, web]
-description:web을 개발하는 새로운 프레임워크, Jaspr, html/css로 flutter web 빌드하기
-
+description: "web을 개발하는 새로운 프레임워크, Jaspr, html/css로 flutter web 빌드하기"
 ---
 
 ## Flutter web
