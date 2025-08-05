@@ -1,0 +1,158 @@
+# Google Search Console 자동 업데이트 워크플로우
+name: Update Google Search Console
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - '**/*.md'
+      - '**/*.html'
+      - 'sitemap.xml'
+  schedule:
+    # 매일 오전 9시 (UTC 기준)
+    - cron: '0 9 * * *'
+  workflow_dispatch: # 수동 실행 가능
+
+jobs:
+  update-search-console:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install Python dependencies
+      run: |
+        pip install google-api-python-client google-auth google-auth-oauthlib google-auth-httplib2
+        
+    - name: Create service account key file
+      run: |
+        echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}' > service-account-key.json
+        
+    - name: Submit sitemap to Google Search Console
+      run: |
+        python << 'EOF'
+        import json
+        import os
+        from google.oauth2 import service_account
+        from googleapiclient.discovery import build
+        
+        # 서비스 계정 인증
+        SCOPES = ['https://www.googleapis.com/auth/webmasters']
+        SERVICE_ACCOUNT_FILE = 'service-account-key.json'
+        
+        credentials = service_account.Credentials.from_service_account_file(
+            SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+        
+        service = build('searchconsole', 'v1', credentials=credentials)
+        
+        # 사이트 URL과 사이트맵 URL 설정
+        site_url = '${{ secrets.SITE_URL }}'  # 예: https://example.com/
+        sitemap_url = f'{site_url}sitemap.xml'
+        
+        try:
+            # 사이트맵 제출
+            request = service.sitemaps().submit(
+                siteUrl=site_url,
+                feedpath=sitemap_url
+            )
+            response = request.execute()
+            print(f"✅ 사이트맵 제출 성공: {sitemap_url}")
+            
+        except Exception as e:
+            print(f"❌ 사이트맵 제출 실패: {str(e)}")
+            
+        # 사이트맵 상태 확인
+        try:
+            sitemaps = service.sitemaps().list(siteUrl=site_url).execute()
+            if 'sitemap' in sitemaps:
+                for sitemap in sitemaps['sitemap']:
+                    print(f"📊 사이트맵: {sitemap['path']}")
+                    if 'lastSubmitted' in sitemap:
+                        print(f"   마지막 제출: {sitemap['lastSubmitted']}")
+                    if 'lastDownloaded' in sitemap:
+                        print(f"   마지막 다운로드: {sitemap['lastDownloaded']}")
+        except Exception as e:
+            print(f"사이트맵 상태 확인 실패: {str(e)}")
+        EOF
+        
+    - name: Request URL indexing (for new/updated pages)
+      run: |
+        python << 'EOF'
+        import json
+        import os
+        import subprocess
+        from google.oauth2 import service_account
+        from googleapiclient.discovery import build
+        
+        # 변경된 파일 목록 가져오기
+        def get_changed_files():
+            try:
+                result = subprocess.run(['git', 'diff', '--name-only', 'HEAD~1'], 
+                                      capture_output=True, text=True)
+                return result.stdout.strip().split('\n') if result.stdout.strip() else []
+            except:
+                return []
+        
+        # 서비스 계정 인증 (Indexing API 사용)
+        SCOPES = ['https://www.googleapis.com/auth/indexing']
+        SERVICE_ACCOUNT_FILE = 'service-account-key.json'
+        
+        credentials = service_account.Credentials.from_service_account_file(
+            SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+        
+        service = build('indexing', 'v3', credentials=credentials)
+        
+        site_url = '${{ secrets.SITE_URL }}'
+        changed_files = get_changed_files()
+        
+        # HTML/MD 파일만 필터링
+        relevant_files = [f for f in changed_files 
+                         if f.endswith(('.html', '.md')) and not f.startswith('.')]
+        
+        print(f"🔍 변경된 관련 파일: {relevant_files}")
+        
+        for file_path in relevant_files[:10]:  # 최대 10개 파일만 처리
+            # 파일 경로를 URL로 변환
+            if file_path.endswith('.md'):
+                url_path = file_path.replace('.md', '.html')
+            else:
+                url_path = file_path
+                
+            full_url = f"{site_url.rstrip('/')}/{url_path.lstrip('/')}"
+            
+            try:
+                body = {
+                    'url': full_url,
+                    'type': 'URL_UPDATED'
+                }
+                
+                request = service.urlNotifications().publish(body=body)
+                response = request.execute()
+                print(f"✅ 색인 요청 성공: {full_url}")
+                
+            except Exception as e:
+                print(f"❌ 색인 요청 실패 ({full_url}): {str(e)}")
+        EOF
+        
+    - name: Clean up
+      if: always()
+      run: |
+        rm -f service-account-key.json
+        
+    - name: Create summary
+      run: |
+        echo "## 🔍 Google Search Console 업데이트 완료" >> $GITHUB_STEP_SUMMARY
+        echo "- 사이트맵 제출 완료" >> $GITHUB_STEP_SUMMARY
+        echo "- 변경된 페이지 색인 요청 완료" >> $GITHUB_STEP_SUMMARY
+        echo "- 실행 시간: $(date)" >> $GITHUB_STEP_SUMMARY
