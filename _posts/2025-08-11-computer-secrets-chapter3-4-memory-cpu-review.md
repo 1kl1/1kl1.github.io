@@ -138,13 +138,13 @@ AND게이트, OR게이트, NOT게이트 3개의 게이트만으로 현재의 컴
 
 하지만 컴퓨터 구조 수업도 듣고, [Turing Complete](https://store.steampowered.com/app/1444480/Turing_Complete/)라는 게임을 해 보면서 어떻게 해서 컴퓨터가 만들어졌는지를 약간이나마 이해해나갈 수 있었습니다.
 
-<img src="/Users/1kl1/Desktop/1kl1.github.io/assets/img/2025-08-11-computer-secrets-chapter3-4-memory-cpu-review/image-20250817162339191.png" alt="image-20250817162339191" style="zoom:50%;" />
+<img src="../assets/img/2025-08-11-computer-secrets-chapter3-4-memory-cpu-review/image-20250817162339191.png" alt="image-20250817162339191" style="zoom:50%;" />
 
 해당 게임내에서 AND, OR게이트등을 이용해서 ALU도 구현 해 보고..
 
 (Switch, Decoder, Mux도 하위 단계에서 직접 만들어서 구현했었습니다)
 
-<img src="/Users/1kl1/Desktop/1kl1.github.io/assets/img/2025-08-11-computer-secrets-chapter3-4-memory-cpu-review/image-20250817162631728.png" alt="image-20250817162631728" style="zoom:50%;" />
+<img src="../assets/img/2025-08-11-computer-secrets-chapter3-4-memory-cpu-review/image-20250817162631728.png" alt="image-20250817162631728" style="zoom:50%;" />
 
 직접 구현 한 ALU와 Register들을 이용해서 작동하는 컴퓨터(?)를 만들어보기도 했습니다.
 

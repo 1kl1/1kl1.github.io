@@ -36,7 +36,7 @@ cpu가 책을 읽는다고 했을 때, 책을 읽을 때마다 도서관(메모�
 
 cs를 공부하게 되면 반드시 한번 이상을 알게 되는 개념입니다.
 
-<img src="/Users/1kl1/Desktop/1kl1.github.io/assets/img/2025-08-21-computer-secrets-chapter-5-6-cache-io/image-20250827205603705.png" alt="image-20250827205603705" style="zoom:50%;" />
+<img src="../assets/img/2025-08-21-computer-secrets-chapter-5-6-cache-io/image-20250827205603705.png" alt="image-20250827205603705" style="zoom:50%;" />
 
 지역성의 원칙인데, 각각 한번 접근했던 메모리 조각에 다시 접근하는 경우, 한 메모리 조각을 참조하면 주변의 다른 메모리 조각에 접근하는 경우에 해당합니다. 위의 이미지는 locality를 극명하게 보여주는 사례입니다.
 
